@@ -1,12 +1,12 @@
-FROM golang:1.26.3
+FROM golang:1.26.3-alpine
 
 WORKDIR /app
 
 # Copy dependency files first
 COPY . .
 
-# Sync the dependencies
-RUN go mod tidy
+# Download the dependencies
+RUN go mod download
 
 # Build application
 RUN go build -o main .
