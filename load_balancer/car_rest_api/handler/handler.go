@@ -55,7 +55,7 @@ func (h *handlerCtx) CreateCar(w http.ResponseWriter, r *http.Request) {
 
 // GET ALL CARS
 func (h *handlerCtx) GetCars(w http.ResponseWriter, r *http.Request) {
-	hostname, _ := os.HostName()
+	hostname, _ := os.Hostname()
 	fmt.Println("UMV GOT Request from : ", hostname)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(h.carList)
